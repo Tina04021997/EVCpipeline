@@ -4,7 +4,7 @@
 # RNA-seq_variant-calling
 This is the workflow for RNA-seq germline variant calling based on [GATK RNAseq short variant discovery workflows](https://gatk.broadinstitute.org/hc/en-us/articles/360035531192-RNAseq-short-variant-discovery-SNPs-Indels-) and [VAtools](https://vatools.readthedocs.io/en/latest/) for data cleaning.
 ## 
-![image](https://github.com/Tina04021997/RNA-seq_variant-calling/blob/main/RNA-seq%20variant%20calling%20workflow.jpg)
+![image]([https://github.com/Tina04021997/RNA-seq_variant-calling/blob/main/RNA-seq%20variant%20calling%20workflow.jpg](https://github.com/Tina04021997/EVCpipeline/blob/main/workflow_logo/v0.1.jpg))
 
 ## Input data
 - Paired-end fastq files
