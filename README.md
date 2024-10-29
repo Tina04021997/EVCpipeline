@@ -1,9 +1,5 @@
 # EVCpipeline 
 ## Workflow Introduction
-
-# RNA-seq_variant-calling
-This is the workflow for RNA-seq germline variant calling based on [GATK RNAseq short variant discovery workflows](https://gatk.broadinstitute.org/hc/en-us/articles/360035531192-RNAseq-short-variant-discovery-SNPs-Indels-) and [VAtools](https://vatools.readthedocs.io/en/latest/) for data cleaning.
-## 
 <img src="https://github.com/Tina04021997/EVCpipeline/blob/main/workflow_logo/v0.1.png" width="95%" height="95%">
 
 ## Input data
