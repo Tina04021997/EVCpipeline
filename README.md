@@ -15,11 +15,8 @@
 3. Due to TSCC memory issue, you will need to modify the temp files in:
   - `params.mkdup_temp_dir` in the `main.nf` file to some folder in restricted
   -  **workDir** in the `nextflow.config` file to some folder in restricted
-4. Run the following code in your working directory using a screen:
+4. Run the following code in your working directory using an interactive node:
 ```
-# Request an entire interactive node (1T 64 threads)
-srun -N 1 -n 1 -c 64 --mem 1000G -t 120:00:00 -p platinum -q hcp-ddp302 -A ddp302 --pty bash
-
 # Activate your nextflow conda environment
 conda activate env_nf
 
