@@ -11,11 +11,19 @@
   - sample.csv
   - summary.py
 
-  > You can find these files and folder in `/tscc/projects/ps-lalexandrov/shared/EVC_nextflow` but you need your own **sample.csv** file
-3. Due to TSCC memory issue, you will need to modify the temp files in:
+  > You can find these shared files and folder in `/tscc/projects/ps-lalexandrov/shared/EVC_nextflow`
+3. Prepare your sample.csv file:
+```
+patient,status,fastq_1,fastq_2,type,file
+RADS10,normal,/path/to/RADS10_normal_1.fastq.gz,/path/to/RADS10_normal_2.fastq.gz,exome,fastq
+RADS10,tumor,/path/to/RADS10_tumor_1.fastq.gz,/path/to/RADS10_tumor_2.fastq.gz,exome,fastq
+```
+> If you are running whole exome files, specify `exome` for type and `genome` for whole genome samples in the sample.csv 
+
+4. Due to TSCC memory issue, you will need to modify the temp files in:
   - `params.mkdup_temp_dir` in the `main.nf` file to some folder in restricted
   -  **workDir** in the `nextflow.config` file to some folder in restricted
-4. Run the following code in your working directory using an interactive node:
+5. Run the following code in your working directory using an interactive node:
 ```
 # Activate your nextflow conda environment
 conda activate env_nf
@@ -26,7 +34,7 @@ export TMPDIR=/some/folder/in/restricted/
 # Run nextflow
 nextflow run main.nf 
 ```
-5. Every process result and report will be stored in the **RESULT** folder
+6. Every process result and report will be stored in the **RESULT** folder
 
 ## Tool Versions
 
