@@ -11,7 +11,7 @@
   - sample.csv
   - summary.py
 
-    You can find these files and folder in `/tscc/projects/ps-lalexandrov/shared/EVC_nextflow` but you need your own **sample.csv** file
+  > You can find these files and folder in `/tscc/projects/ps-lalexandrov/shared/EVC_nextflow` but you need your own **sample.csv** file
 3. Due to TSCC memory issue, you will need to modify the temp files in:
   - `params.mkdup_temp_dir` in the `main.nf` file to some folder in restricted
   -  **workDir** in the `nextflow.config` file to some folder in restricted
