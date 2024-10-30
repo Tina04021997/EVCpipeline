@@ -32,7 +32,10 @@ conda activate env_nf
 export TMPDIR=/some/folder/in/restricted/
 
 # Run nextflow
-nextflow run main.nf 
+nextflow run main.nf
+
+# Optionally, you can recieve an notifiction email on completion with -N flag:
+nextflow run main.nf -N your_email@gmail.com
 ```
 6. Every process result and report will be stored in the **RESULT** folder
 
