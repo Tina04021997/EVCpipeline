@@ -26,6 +26,7 @@ export TMPDIR=/some/folder/in/restricted/
 # Run nextflow
 nextflow run main.nf 
 ```
+5. Every process result and report will be stored in **RESULT** folder
 
 ## Tool Versions
 
