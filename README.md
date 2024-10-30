@@ -9,6 +9,7 @@
   - nextflow.config
   - conf/base.config
   - sample.csv
+  - summary.py
 
     You can find these files and folder in `/tscc/projects/ps-lalexandrov/shared/EVC_nextflow` but you need your own **sample.csv** file
 3. Due to TSCC memory issue, you will need to modify the temp files in:
