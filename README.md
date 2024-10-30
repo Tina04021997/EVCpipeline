@@ -23,7 +23,11 @@ RADS10,tumor,/path/to/RADS10_tumor_1.fastq.gz,/path/to/RADS10_tumor_2.fastq.gz,e
 4. Due to TSCC memory issue, you will need to modify the temp folder path to some folder in restricted:
   - `$params.mkdup_temp_dir` in the `main.nf` file 
   -  `$workDir` in the `nextflow.config` file
-5. Run Nextflow in your working directory under an interactive node:
+5. Request an interactive node and run Nextflow in your working directory under an interactive node:
+
+#Node requesting
+srun -N 1 -n 1 -c 8 --mem 125G -t 48:00:00 -p platinum -q hcp-ddp302 -A ddp302 --pty bash
+
 ```
 # Activate your nextflow conda environment
 conda activate env_nf
