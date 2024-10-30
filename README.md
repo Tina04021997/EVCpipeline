@@ -20,10 +20,10 @@ RADS10,tumor,/path/to/RADS10_tumor_1.fastq.gz,/path/to/RADS10_tumor_2.fastq.gz,e
 ```
 > If you are running whole exome files, specify `exome` for type and `genome` for whole genome samples in the sample.csv 
 
-4. Due to TSCC memory issue, you will need to modify the temp files in:
-  - `params.mkdup_temp_dir` in the `main.nf` file to some folder in restricted
-  -  **workDir** in the `nextflow.config` file to some folder in restricted
-5. Run the following code in your working directory using an interactive node:
+4. Due to TSCC memory issue, you will need to modify the temp folder path to some folder in restricted:
+  - `$params.mkdup_temp_dir` in the `main.nf` file 
+  -  `$workDir` in the `nextflow.config` file
+5. Run Nextflow in your working directory under an interactive node:
 ```
 # Activate your nextflow conda environment
 conda activate env_nf
