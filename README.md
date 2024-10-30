@@ -27,7 +27,7 @@ RADS10,tumor,/path/to/RADS10_tumor_1.fastq.gz,/path/to/RADS10_tumor_2.fastq.gz,e
 
 ```
 #Node requesting
-srun -N 1 -n 1 -c 8 --mem 125G -t 48:00:00 -p platinum -q hcp-ddp302 -A ddp302 --pty bash
+srun -N 1 -n 1 -c 8 --mem 125G -t 24:00:00 -p platinum -q hcp-ddp302 -A ddp302 --pty bash
 
 # Activate your nextflow conda environment
 conda activate env_nf
