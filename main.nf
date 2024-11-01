@@ -88,7 +88,7 @@ workflow {
     BWA_MEM(sample_sheet).set { BWA_MEM_out }
     SAVE_CSV_BWA_MEM(BWA_MEM_out.bam, params.report_dir, params.bam_dir)
     CHECK_BAM_BWA(BWA_MEM_out.bam).set{ CHECK_BAM_BWA_out }
-    COMBINE_REPORTS_BWA(BWA_MEM_out.individual_reports_bwa.collect())
+    COMBINE_REPORTS_BWA(CHECK_BAM_BWA_out.individual_reports_bwa.collect())
 
     //3
     MKDUP(BWA_MEM_out).set{ MKDUP_out }
