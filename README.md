@@ -18,7 +18,8 @@ patient,status,fastq_1,fastq_2,type,file
 RADS10,normal,/path/to/RADS10_normal_1.fastq.gz,/path/to/RADS10_normal_2.fastq.gz,exome,fastq
 RADS10,tumor,/path/to/RADS10_tumor_1.fastq.gz,/path/to/RADS10_tumor_2.fastq.gz,exome,fastq
 ```
-> If you are running whole exome files, specify `exome` for type and `genome` for whole genome samples in the sample.csv 
+> If you are running whole exome files, specify `exome` for type and `genome` for whole genome samples in the sample.csv
+> You can use the `create_sample_csv.sh` to create your sample.csv
 
 4. Due to TSCC memory issue, you may need to modify the temp folder path to some folder in restricted:
   - `$params.mkdup_temp_dir` in the `main.nf` file (Default: `$projectDir/mkdup_tmp`)
