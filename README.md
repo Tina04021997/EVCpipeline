@@ -39,6 +39,9 @@ export TMPDIR=/some/folder/in/restricted/
 # Run nextflow
 nextflow run main.nf
 
+# If your pipeline terminates with external error, or the interactive node is killed, you can resume your task after setting up the previous steps again with the following command:
+nextflow run main.nf -resume
+
 # Optionally, you can recieve an notifiction email on completion with -N flag:
 nextflow run main.nf -N your_email@gmail.com
 ```
