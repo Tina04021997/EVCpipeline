@@ -5,9 +5,9 @@
 ## ALL YOU NEED TO CHANGE ##
 ############################
 
-WORK_DIR='/tscc/lustre/restricted/alexandrov-ddn/users/tiy002/projects/NF_valiadtion/post_evc'
-BAM_PATH='/tscc/lustre/restricted/alexandrov-ddn/users/tiy002/projects/NF_valiadtion/RESULTS/RECALIBRATE'
-HOME_PATH='/tscc/lustre/restricted/alexandrov-ddn/users/tiy002/projects/NF_valiadtion/RESULTS'
+WORK_DIR='/tscc/lustre/restricted/alexandrov-ddn/users/tiy002/projects/NF_valiadtion_noscattering_BQSR/post'
+BAM_PATH='/tscc/lustre/restricted/alexandrov-ddn/users/tiy002/projects/NF_valiadtion_noscattering_BQSR/RESULTS/RECALIBRATE'
+HOME_PATH='/tscc/lustre/restricted/alexandrov-ddn/users/tiy002/projects/NF_valiadtion_noscattering_BQSR/RESULTS'
 tlod=10
 sevs=13
 
@@ -338,7 +338,13 @@ fi
 mv ${f}.tmp3 ${fa}_snv_final_annotated.vcf
 rm *tmp*
 rm *mutect_snv_PON.vcf
+
+# Cleaning up and remove low quality samples
+cat ${fa}_snv_final_annotated.vcf|awk '$7 == "PASS" {print $1, $2, $3, $4, $5, $6, $7, $8, $9}'|awk -v OFS="\t" '$1=$1'|awk '$1 ~ /^#/ {print $0;next} {print $0 | "sort -k1,1V -k2,2n"}' > ${fa}_PASSed.vcf
+
 done
+
+
 
 ## indels
 echo Annotating callers in indels...
@@ -414,4 +420,8 @@ fi
 mv ${f}.tmp3 ${fa}_indel_final_annotated.vcf
 rm *tmp*
 rm *mutect_indel_PON.vcf
+
+# Cleaning up and remove low quality samples
+cat ${fa}_indel_final_annotated.vcf|awk '$7 == "PASS" {print $1, $2, $3, $4, $5, $6, $7, $8, $9}'|awk -v OFS="\t" '$1=$1'|awk '$1 ~ /^#/ {print $0;next} {print $0 | "sort -k1,1V -k2,2n"}' > ${fa}_PASSed.vcf
+
 done
