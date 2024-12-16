@@ -62,4 +62,4 @@ nextflow run main.nf -N your_email@gmail.com
 | Strelka2 | v2.9.10 |
 | Mutect2 | v4.6.0.0 (gatk) |
 | SAGE | v3.3 |
-| MuSE2 | v2.0 |
+| MuSE2 | v2.1.2 |
