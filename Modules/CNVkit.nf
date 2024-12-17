@@ -5,8 +5,8 @@ process CNVkit {
     scratch true
     label 'process_high'
     publishDir("${params.cnvkit_dir}", mode: 'copy')
-    errorStrategy 'retry'
-    maxRetries 3
+    // errorStrategy 'retry'
+    // maxRetries 3
 
     input:
     tuple val(patient), val(type), path(normal), path(tumor), path(cnn)
@@ -23,7 +23,7 @@ process CNVkit {
         """
         cnvkit.py batch \
         ${tumor} \
-        --targets ${params.database_dir}/GRCh38_exome.bed \
+        -r ${cnn} \
         -p 16 \
         --scatter --diagram
 
