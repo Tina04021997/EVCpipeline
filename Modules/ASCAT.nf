@@ -45,7 +45,7 @@ process ASCAT {
     alleles.prefix = "${params.database_dir}/ASCAT/WGS/hg38/Alleles/G1000_alleles_hg38_chr",
     loci.prefix = "${params.database_dir}/ASCAT/WGS/hg38/Loci/G1000_loci_hg38_chr",
     gender = "${map.gender}",
-    nthreads = "8",
+    nthreads = "16",
     genomeVersion = "hg38")
 
     # Running ASCAT
