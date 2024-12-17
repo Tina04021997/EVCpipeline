@@ -9,18 +9,19 @@ process CNVkit_buildcnn {
     maxRetries 3
 
     input:
-    tuple val(patient), val(meta), path(bam), path(bai)
+    tuple val(patient), val(type), path(normal), path(tumor)
 
     output:
+    tuple val(patient), val(type), path(normal), path(tumor), path("reference.cnn"), emit: CNVkit_input
     path("reference.cnn"), emit: CNVkit_ref_cnn
     path("*coverage.cnn"), emit: CNVkit_buildcnns
 
     script:
 
-    if (meta.type == "exome")
+    if (type == "exome")
         """
         cnvkit.py batch \
-        ${bam} \
+        ${normal} \
         -n \
         --targets ${params.database_dir}/GRCh38_exome.bed \
         --fasta ${params.ref} \
@@ -30,13 +31,12 @@ process CNVkit_buildcnn {
     else
         """
         cnvkit.py batch \
-        ${bam} \
+        ${normal} \
         -n \
         --method wgs \
         --fasta ${params.ref} \
         --output-reference reference.cnn \
         -p 8
         """
-
 
 }
