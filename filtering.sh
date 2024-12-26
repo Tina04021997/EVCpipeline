@@ -202,9 +202,9 @@ cd indels_filtered
 mkdir 2outof3 3outof3
 
 # Select mutations called by at least 2/3 callers and filter out chromosomes rather than 1-22 and XY
-for f in *_mutect_indel.vcf;do fa=`basename $f _mutect_indel.vcf`;cat ${fa}*|cut -f1-5|sort|uniq -c|awk '$1>1'|awk '{OFS="\t";print $2,$3,$4,$5,$6}'| grep -v "_" | grep -v chrM>2outof3/${fa}_2outof3.vcf;done
+for f in *_mutect_indel.vcf;do fa=`basename $f _mutect_indel.vcf`;cat ${fa}_*|cut -f1-5|sort|uniq -c|awk '$1>1'|awk '{OFS="\t";print $2,$3,$4,$5,$6}'| grep -v "_" | grep -v chrM>2outof3/${fa}_2outof3.vcf;done
 
-for f in *_mutect_indel.vcf;do fa=`basename $f _mutect_indel.vcf`;cat ${fa}*|cut -f1-5|sort|uniq -c|awk '$1>2'|awk '{OFS="\t";print $2,$3,$4,$5,$6}'| grep -v "_" | grep -v chrM>3outof3/${fa}_3outof3.vcf;done
+for f in *_mutect_indel.vcf;do fa=`basename $f _mutect_indel.vcf`;cat ${fa}_*|cut -f1-5|sort|uniq -c|awk '$1>2'|awk '{OFS="\t";print $2,$3,$4,$5,$6}'| grep -v "_" | grep -v chrM>3outof3/${fa}_3outof3.vcf;done
 
 mkdir mutect_indels sage_indels strelka_indels
 mv *mutect_indel.vcf mutect_indels
@@ -217,11 +217,11 @@ cd ../snvs_filtered
 mkdir 2outof4 3outof4 4outof4
 
 # Select mutations called by at least 2/3/4 callers and filter out chromosomes rather than 1-22 and XY
-for f in *_mutect_snv.vcf;do fa=`basename $f _mutect_snv.vcf`;cat ${fa}*|cut -f1-5|sort|uniq -c|awk '$1>1'|awk '{OFS="\t";print $2,$3,$4,$5,$6}'| awk '{$6=".";$7="PASS";$8=".";$9=".";print}' OFS='\t'| grep -v "_" | grep -v chrM>2outof4/${fa}_2outof4.vcf;done
+for f in *_mutect_snv.vcf;do fa=`basename $f _mutect_snv.vcf`;cat ${fa}_*|cut -f1-5|sort|uniq -c|awk '$1>1'|awk '{OFS="\t";print $2,$3,$4,$5,$6}'| awk '{$6=".";$7="PASS";$8=".";$9=".";print}' OFS='\t'| grep -v "_" | grep -v chrM>2outof4/${fa}_2outof4.vcf;done
 
-for f in *_mutect_snv.vcf;do fa=`basename $f _mutect_snv.vcf`;cat ${fa}*|cut -f1-5|sort|uniq -c|awk '$1>2'|awk '{OFS="\t";print $2,$3,$4,$5,$6}' | awk '{$6=".";$7="PASS";$8=".";$9=".";print}' OFS='\t'| grep -v "_" | grep -v chrM>3outof4/${fa}_3outof4.vcf;done
+for f in *_mutect_snv.vcf;do fa=`basename $f _mutect_snv.vcf`;cat ${fa}_*|cut -f1-5|sort|uniq -c|awk '$1>2'|awk '{OFS="\t";print $2,$3,$4,$5,$6}' | awk '{$6=".";$7="PASS";$8=".";$9=".";print}' OFS='\t'| grep -v "_" | grep -v chrM>3outof4/${fa}_3outof4.vcf;done
 
-for f in *_mutect_snv.vcf;do fa=`basename $f _mutect_snv.vcf`;cat ${fa}*|cut -f1-5|sort|uniq -c|awk '$1>3'|awk '{OFS="\t";print $2,$3,$4,$5,$6}'| awk '{$6=".";$7="PASS";$8=".";$9=".";print}' OFS='\t'| grep -v "_" | grep -v chrM>4outof4/${fa}_4outof4.vcf;done
+for f in *_mutect_snv.vcf;do fa=`basename $f _mutect_snv.vcf`;cat ${fa}_*|cut -f1-5|sort|uniq -c|awk '$1>3'|awk '{OFS="\t";print $2,$3,$4,$5,$6}'| awk '{$6=".";$7="PASS";$8=".";$9=".";print}' OFS='\t'| grep -v "_" | grep -v chrM>4outof4/${fa}_4outof4.vcf;done
 
 mkdir mutect_snvs muse_snvs strelka_snvs sage_snvs
 mv *muse_snv.vcf muse_snvs
